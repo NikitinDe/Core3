@@ -1,9 +1,6 @@
 package task.io;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class CreatingFile {
     public static void main(String[] args) {
@@ -14,7 +11,7 @@ public class CreatingFile {
             writer.close();
             System.out.println("Файл создан и записан!");
         } catch (IOException e) {
-            throw new RuntimeException("Файл не записан!");
+            System.out.println("Исключение");
         }
     }
 }

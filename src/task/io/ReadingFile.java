@@ -16,7 +16,7 @@ public class ReadingFile {
             System.out.println();
             System.out.println("FileReader!");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Исключение");
         }
 
         }

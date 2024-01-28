@@ -10,8 +10,8 @@ public class Square {
         try {
             int integer = scanner.nextInt();
             System.out.println(squareNumber(integer));
-        } catch (Exception e) {
-            throw new InputMismatchException("Введено не число!");
+        } catch (InputMismatchException e) {
+            System.out.println("Введено не число!");
         }
     }
     public static int squareNumber(int integer) {

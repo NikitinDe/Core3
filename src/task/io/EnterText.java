@@ -18,7 +18,7 @@ public class EnterText {
             writer.close();
             System.out.println("Ваш текст записан в новый файл!");
         } catch (IOException e) {
-            throw new RuntimeException("Файл не записан");
+            System.out.println("Файл не записан");
         }
     }
 }

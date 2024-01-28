@@ -15,8 +15,8 @@ public class DividingNumber {
             int number2 = scaner.nextInt();
             double result = dividingNumber(1, 2);
             System.out.println("Result = " + result);
-        } catch (Exception e) {
-            throw new InputMismatchException("No number enter!");
+        } catch (ArithmeticException e) {
+            System.out.println("No number enter!");
         }
     }
     public static double dividingNumber(int number, int number2) {

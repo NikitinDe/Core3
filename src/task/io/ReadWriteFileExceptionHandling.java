@@ -1,22 +1,23 @@
 package task.io;
 
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReadWriteFileExceptionHandling {
     public static void main(String[] args) {
-        dividesNumbers(4, 2);
-        BankAccount bankAccount = new BankAccount(600);
-        bankAccount.withdrawalMoney(500);
-        System.out.println(stringConversion("1"));
-        List<ListStudent> studentList = new ArrayList<>();
-        ListStudent listStudent = new ListStudent("Павел", 19);
-        listStudent.addListStudent(listStudent);
-        System.out.println(listStudent);
-        // listStudent.addListStudent(listStudent);
-        Car car = new Car("Lexus");
-        car.startingEngine();
+        System.out.println(dividesNumbers(4, 2));
+//        BankAccount bankAccount = new BankAccount(600);
+//        bankAccount.withdrawalMoney(500);
+//        System.out.println(stringConversion("1"));
+//        List<ListStudent> studentList = new ArrayList<>();
+//        ListStudent listStudent = new ListStudent("Павел", 19);
+//        listStudent.addListStudent(listStudent);
+//        System.out.println(listStudent);
+//        // listStudent.addListStudent(listStudent);
+//        Car car = new Car("Lexus");
+//        car.startingEngine();
         //car.startingEngine();
     }
 
@@ -32,11 +33,12 @@ public class ReadWriteFileExceptionHandling {
     public static int dividesNumbers(int number1, int number2) {
         try {
             if (number2 == 0) {
-                throw new RuntimeException("На ноль делить нельзя");
+                throw new ArithmeticException("На ноль делить нельзя");
             }
             return number1 / number2;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (ArithmeticException e) {
+            System.out.println("Soso");
+            return 0;
         }
     }
 
@@ -56,8 +58,9 @@ public class ReadWriteFileExceptionHandling {
             int result = Integer.parseInt(str);
             System.out.println("Строка преобразвана");
             return result;
-        } catch (Exception ex) {
-            throw new RuntimeException("Строка не преобразована:" + str);
+        } catch (ArithmeticException ex) {
+            System.out.println(("Строка не преобразована:" + str));
+            return 0;
         }
     }
     // TODO: Реализуйте класс, который представляет список студентов. Реализуйте метод для добавления

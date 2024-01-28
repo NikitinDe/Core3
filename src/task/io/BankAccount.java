@@ -11,14 +11,14 @@ public class BankAccount {
     public void withdrawalMoney(int money) {
         try {
             if (money >= account) {
-                throw new Exception("\n" +
+                throw new ArithmeticException("\n" +
                         "недостаточно денег на счете\n" +
                         "there is not enough money in the account");
             }
             account -= money;
             System.out.println("На балансе:" + account);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (ArithmeticException e) {
+            System.out.println("Исключение");
         }
 
 

@@ -22,7 +22,7 @@ public Car(String name){
         startingEngine=true;
         System.out.println("Starting Engine!");
     } catch (Exception e) {
-        throw new RuntimeException(e);
+        System.out.println("Исключение");
     }
 
 

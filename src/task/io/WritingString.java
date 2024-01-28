@@ -12,16 +12,16 @@ public class WritingString {
                 new FileWriter(file))) {
             bufferedWriter.write(str);
             bufferedWriter.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (FileNotFoundException e) {
+            System.out.println("Исключение");
         }
         try {
             Scanner scanner = new Scanner(file);
             String string = scanner.next();
             scanner.close();
             System.out.println(string);
-        } catch (IOException e) {
-            throw new IOException("Файл не найден");
+        } catch (FileNotFoundException e) {
+            System.out.println("Файл не найден");
         }
     }
 }
