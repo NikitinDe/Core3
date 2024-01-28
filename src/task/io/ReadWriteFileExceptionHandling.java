@@ -1,20 +1,36 @@
 package task.io;
 
-public class ReadWriteFileExceptionHandling {
-    public static void main(String[] args) {
 
+import java.util.ArrayList;
+import java.util.List;
+
+public class ReadWriteFileExceptionHandling {
+    public static void main(String[] args) throws Exception {
+        dividesNumbers(4, 1);
+        stringConversion("1");
     }
 
     // Реализуйте функциональность согласно описанию
-
-    // TODO: Напишите программу, которая создает новый файл и записывает в него данные, которые передаются
+    // TODO:Напишите программу, которая создает новый файл и записывает в него данные, которые передаются
     //  строкой
-
     // TODO: Напишите программу, в которой при запуске приложения вы вводите в консоль текст и на основе
     //  введенного текста создается файл
+    // EnterText.java
 
-    // TODO: Создайте метод, который делит два числа и возвращает результат. Обработайте исключение,
-    //  если второе число равно нулю
+    // TODO: Cоздайте метод, который делит два числа и возвращает результат. Обработайте исключение,
+    //    //  если второе число равно нулю
+    public static int dividesNumbers(int number1, int number2) {
+        try {
+            if (number2 == 0) {
+                throw new RuntimeException();
+            }
+            return number1 / number2;
+        } catch (Exception e) {
+            System.out.println("На ноль делить нельзя");
+
+        }return 0;
+    }
+
 
     // TODO: Напишите программу, которая считывает число с клавиатуры и выводит его квадрат. Обработайте
     //  исключение, если введено не число
@@ -27,7 +43,16 @@ public class ReadWriteFileExceptionHandling {
 
     // TODO: Создайте метод, который преобразует строку в число. Обработайте исключение, если строка не
     //  может быть преобразована в число.
+    public static int  stringConversion(String str) {
+        try {
+            int result = Integer.parseInt(str);
 
+            return result;
+        } catch (Exception ex) {
+            System.out.println("Строка не преобразована:" + str);
+        }
+        return 0;
+    }
     // TODO: Реализуйте класс, который представляет список студентов. Реализуйте метод для добавления
     //  студента в список. Обработайте исключение, если список уже содержит студента с таким же именем.
 
