@@ -15,43 +15,58 @@ public class Stream {
         int number = scaner.nextInt();
         System.out.println("Enter too number:");
         int number2 = scaner.nextInt();
-        System.out.println( addingNumbers(number,number2));
-        System.out.println("______-");
-        System.out.println( filteringWords("ss","rrsss"));
+        scaner.nextLine();
+
+        addingNumbers(number,number2);
+
+        System.out.println();
+        System.out.print("введите слова через пробел :");
         String str = scaner.nextLine();
-        System.out.println(listSquares(str));
-        List<String> list = new ArrayList<>();
-        for (String res : str.split(" ")) {
-            list.add(res);
-        }
-        convertingStringUppercase(list);
+        System.out.print("Введите символ:");
+        char str2 = scaner.nextLine().charAt(0);
+        filteringWords(str,str2);
+
+        System.out.println("Введите  список чисел через пробел :");
+        String str1 = scaner.nextLine();
+        listSquares(str1);
+
+        System.out.print("ведите список слов через пробел: ");
+        String str3=scaner.nextLine();
+        convertingStringUppercase(str3);
     }
     //Реализуйте функциональность согласно описанию
     // TODO: Напишите метод, который принимает два числа от пользователя и использует функциональный интерфейс BinaryOperator
-//  для сложения этих чисел и вывода результата.
-    public static int addingNumbers(int number, int number2) {
+//      для сложения этих чисел и вывода результата.
+    public static void addingNumbers(int number, int number2) {
         BinaryOperator<Integer> binaryOperator = (a, b) -> a + b;
         int res = binaryOperator.apply(number, number2);
-        return res;
+        System.out.println(res);
     }
 
     // TODO: Напишите метод, который принимает список слов от пользователя и использует функциональный интерфейс Predicate
-    // для фильтрации слов, начинающихся с определенной буквы, и вывода отфильтрованного списка.
-    public static String filteringWords(String str, String str2) {
-
+    //  для фильтрации слов, начинающихся с определенной буквы, и вывода отфильтрованного списка.
+    public static void filteringWords(String str,char str2) {
         List<String> stringlist = new ArrayList<>();
-        for (String word : str.split(" ")) {
+        String[]strings = str.split(" ");
+        for (String word : strings) {
             stringlist.add(word);
         }
-        Predicate<String> predicate = word -> word.startsWith(str);
-        return predicate.toString();
+        Predicate<String> predicate = word -> word.startsWith(String.valueOf(str2));
+        List<String> fil = new ArrayList<>();
+        for (String word : stringlist) {
+            if (predicate.test(word)) {
+                fil.add(word);
+            }
+        }
+        System.out.println(fil);
     }
 
     // TODO: Напишите метод, который принимает список чисел от пользователя и использует функциональный интерфейс Function
-//  для преобразования каждого числа в его квадрат и вывода списка квадратов.
-    public static String listSquares(String str) {
+//           для преобразования каждого числа в его квадрат и вывода списка квадратов.
+    public static void listSquares(String str1) {
         List<Integer> list = new ArrayList<>();
-        for (String val : str.split(" ")) {
+        String[] strings = str1.split(" ");
+        for (String val : strings) {
             list.add(Integer.parseInt(val));
         }
         Function<Integer, Integer> function = e -> e * e;
@@ -59,15 +74,21 @@ public class Stream {
         for (Integer r : list) {
             integerList.add(function.apply(r));
         }
-        return integerList.toString();
+        System.out.println(integerList);
     }
 
     // TODO: Напишите метод, который принимает список строк от пользователя и использует функциональный интерфейс Consumer
     //  для вывода каждой строки в верхнем регистре.
-    public static void   convertingStringUppercase(List<String> list) {
+    public static void   convertingStringUppercase(String str3) {
+        List<String> list = new ArrayList<>();
+        String[] string = str3.split(" ");
+        for (String s : string)
+            list.add(s);
+
         Consumer<String> consumer = e -> System.out.println(e.toUpperCase());
-        for (String s : list)
-            consumer.accept(s);
+        for(String s1:list){
+            consumer.accept(s1);
+        }
     }
 }
 // TODO: Найти сумму всех чисел в списке. Описание: Напишите программу, которая принимает список целых чисел в качестве
