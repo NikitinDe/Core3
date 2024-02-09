@@ -6,19 +6,18 @@ import java.util.Scanner;
 //  исключение, если введено не число
 public class Square {
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите число:");
-        int integer = scanner.nextInt();
-        squareNumber(integer);
+
+        squareNumber();
     }
-    public static int squareNumber(int integer) {
+
+    public static void squareNumber() {
         try {
-            System.out.println(squareNumber(integer));
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Введите число:");
+            int integer = scanner.nextInt();
+            System.out.println(integer * integer);
         } catch (Exception e) {
             throw new InputMismatchException("Введено не число!");
         }
-        return integer * integer;
-
     }
-
 }

@@ -8,13 +8,13 @@ import java.util.stream.Collectors;
 //  качестве входных данных и преобразует его в список их длин с использованием стримов.
 public class ConvertingStringList {
     public static void main(String[] args) {
+        convertingStringList();
+    }
+    public static void convertingStringList(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите cписок элементов через пробел : ");
         String element = scanner.nextLine();
         List<String> list = new ArrayList<>();
-        convertingStringList(element,list);
-    }
-    public static void convertingStringList(String element,List<String> list){
         String[]strings = element.split(" ");
         for (String el : strings) {
             list.add(el);

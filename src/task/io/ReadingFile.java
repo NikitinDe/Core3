@@ -12,13 +12,13 @@ public class ReadingFile {
     public static void reding(){
         try {
             FileReader reader = new FileReader("newFail.txt");
-            int cha;
-            while ((cha = reader.read()) != -1) {
-                System.out.print((char)cha);
+            int ch;
+            while ((ch = reader.read()) != -1) {
+                System.out.print((char)ch);
             }
             reader.close();
         } catch (IOException e) {
-            System.out.println("файл не найден");;
+            System.out.println("файл не найден");
         }
 
         }

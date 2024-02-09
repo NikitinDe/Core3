@@ -2,25 +2,26 @@ package task.stream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 // TODO: Удалить дубликаты из списка. Описание: Напишите программу, которая принимает список элементов в качестве входных
 //  данных и удаляет все дубликаты, оставляя только уникальные элементы с использованием стримов.
 public class DublicatesList {
     public static void main(String[] args) {
+        dublicatesList();
+    }
+
+    public static void dublicatesList() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите cписок элементов через пробел : ");
         String element = scanner.nextLine();
-        List<Integer> list = new ArrayList<>();
-        dublicatesList(list, element);
-    }
-
-    public static void dublicatesList(List<Integer> list, String element) {
+        List<String> list = new ArrayList<>();
         String[] strings = element.split(" ");
         for (String el : strings) {
-            list.add(Integer.parseInt(el));
+            list.add(el);
         }
-        List<Integer> result = list.stream()
+        List<String> result = list.stream()
                 .distinct()
                 .collect(Collectors
                         .toList());

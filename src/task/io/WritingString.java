@@ -6,11 +6,13 @@ import java.util.Scanner;
 //  считывает первое слово из файла
 public class WritingString {
     public static void main(String[] args) throws IOException {
-        String str = "Hello Java, i am love Java";
-        File file = new File("Wrfile.txt");
-        writing(str,file);
+        writing();
     }
-    public static void writing(String str, File file){
+    public static void writing(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите текст: ");
+        String str = scanner.nextLine();
+        File file = new File("Wrfile.txt");
         try (BufferedWriter bufferedWriter = new BufferedWriter(
                 new FileWriter(file))) {
             bufferedWriter.write(str);
@@ -18,7 +20,7 @@ public class WritingString {
             throw new RuntimeException(e);
         }
         try {
-            Scanner scanner = new Scanner(file);
+            scanner = new Scanner(file);
             String string = scanner.next();
             scanner.close();
             System.out.println(string);

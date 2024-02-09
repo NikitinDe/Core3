@@ -3,10 +3,16 @@ package task.io;
 //  Обработайте исключение, если двигатель уже запущен.
 
 
+import java.util.Scanner;
+
 public class Car {
     public static void main(String[] args)throws Exception{
-        Car car =new Car("Lexus");
-        car.startingEngin();
+        Scanner scanner  =new Scanner(System.in);
+        System.out.print("Введите название  автомобиля который хотите запустить: ");
+        String avtomobil =scanner.nextLine();
+        Car car =new Car(avtomobil);
+        car.startingEngin(avtomobil);
+
     }
 
 private boolean startingEngine;
@@ -22,15 +28,15 @@ public Car(String name){
         this.startingEngine = startingEngine;
     }
 
-    public void startingEngin(){
+    public void startingEngin(String avtomobil){
     try{
         if(startingEngine){
             throw new Exception();
         }
         startingEngine=true;
-        System.out.println("Starting Engine!");
+        System.out.println("Запущен двигатель у автомобиля: "+ avtomobil);
     } catch (Exception e) {
-        System.out.println("Двигатель работает");
+        System.out.println(" У данного авто: " + avtomobil+" Двигатель работает! ");
     }
 
 

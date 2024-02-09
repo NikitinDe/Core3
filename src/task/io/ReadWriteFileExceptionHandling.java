@@ -1,67 +1,52 @@
 package task.io;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class ReadWriteFileExceptionHandling {
     public static void main(String[] args) throws Exception {
-        dividesNumbers(4, 1);
-        stringConversion("1");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите первое число: ");
+        int number1 = scanner.nextInt();
+        System.out.println("Введите второе число: ");
+        int number2 = scanner.nextInt();
+        scanner.nextLine();
+
+        int res = dividesNumbers(number1, number2);
+        System.out.println("Результат = " + res);
+        System.out.println();
+
+        System.out.println("Введите слово: ");
+        String str = scanner.nextLine();
+        int result = stringConversion(str);
+        System.out.println("Результат: "+ result);
+
     }
-
-    // Реализуйте функциональность согласно описанию
-    // TODO:Напишите программу, которая создает новый файл и записывает в него данные, которые передаются
-    //  строкой
-    // TODO: Напишите программу, в которой при запуске приложения вы вводите в консоль текст и на основе
-    //  введенного текста создается файл
-    // EnterText.java
-
     // TODO: Cоздайте метод, который делит два числа и возвращает результат. Обработайте исключение,
     //    //  если второе число равно нулю
-    public static int dividesNumbers(int number1, int number2) {
+    public static int  dividesNumbers(int number1, int number2) {
         try {
             if (number2 == 0) {
                 throw new RuntimeException();
             }
-            return number1 / number2;
+           return number1 / number2;
         } catch (Exception e) {
             System.out.println("На ноль делить нельзя");
 
-        }return 0;
+        }
+        return 0;
     }
 
-
-    // TODO: Напишите программу, которая считывает число с клавиатуры и выводит его квадрат. Обработайте
-    //  исключение, если введено не число
-
-    // TODO: Создайте класс, который представляет банковский счет. Реализуйте метод для снятия денег со
-    //  счета. Обработайте исключение, если на счете недостаточно средств.
-
-    // TODO: Напишите программу, которая считывает данные из файла и выводит их на экран. Обработайте
-    //  исключение, если файл не найден.
 
     // TODO: Создайте метод, который преобразует строку в число. Обработайте исключение, если строка не
     //  может быть преобразована в число.
     public static int  stringConversion(String str) {
         try {
-            int result = Integer.parseInt(str);
-
-            return result;
+            return Integer.parseInt(str);
         } catch (Exception ex) {
             System.out.println("Строка не преобразована:" + str);
+            return 0;
         }
-        return 0;
     }
-    // TODO: Реализуйте класс, который представляет список студентов. Реализуйте метод для добавления
-    //  студента в список. Обработайте исключение, если список уже содержит студента с таким же именем.
 
-    // TODO: Напишите программу, которая делит одно число на другое и выводит результат. Обработайте
-    //  исключение, если введены некорректные данные (например, вместо числа введена строка).
-
-    // TODO: Создайте класс, который представляет автомобиль. Реализуйте метод для запуска двигателя.
-    //  Обработайте исключение, если двигатель уже запущен.
-
-    // TODO: Напишите программу, которая создает файл из текста, который подается строкой, а потом
-    //  считывает первое слово из файла
 }

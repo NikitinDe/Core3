@@ -8,15 +8,15 @@ import java.util.Scanner;
 //  стримов.
 public class DoesTheListContainValue {
     public static void main(String[] args) {
+        doesTheListContainValue();
+    }
+    public static void doesTheListContainValue() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите cписок элементов через пробел : ");
+        System.out.println("Введите элементы  через пробел : ");
         String element = scanner.nextLine();
         System.out.println("Введите значение для проверки: ");
         int value = scanner.nextInt();
         List<Integer> list = new ArrayList<>();
-        doesTheListContainValue(list,element,value);
-    }
-    public static void doesTheListContainValue(List<Integer> list, String element, int value) {
         String[] strings = element.split(" ");
         for (String el : strings) {
             list.add(Integer.parseInt(el));

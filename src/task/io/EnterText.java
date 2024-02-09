@@ -9,14 +9,15 @@ import java.util.Scanner;
 //  введенного текста создается файл
 public class EnterText {
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите текст");
-        String string = scanner.nextLine();
-        File file = new File("Задача2.txt");
-        enterText(string,file);
+
+        enterText();
     }
-    public static void enterText(String string,File file){
+    public static void enterText(){
         try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Введите текст");
+            String string = scanner.nextLine();
+            File file = new File("Задача2.txt");
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(string);
             writer.close();

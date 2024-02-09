@@ -2,14 +2,21 @@ package task.io;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 // TODO: Реализуйте класс, который представляет список студентов. Реализуйте метод для добавления
 //  студента в список. Обработайте исключение, если список уже содержит студента с таким же именем.
 
 public class ListStudent {
     public static void main(String[] args) throws Exception {
-        ListStudent student1 = new ListStudent("паша",25);
-        addListStudent(student1);
-        addListStudent(student1);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите имя:");
+        String name = scanner.nextLine();
+        System.out.print("Введите возраст: ");
+        int age = scanner.nextInt();
+        scanner.nextLine();
+
+        ListStudent listStudent = new ListStudent(name,age);
+        addListStudent(listStudent);
 
     }
     private String name;
@@ -44,13 +51,19 @@ public class ListStudent {
                 ", age=" + age +
                 '}';
     }
-       public static void addListStudent(ListStudent str) {
+       public static void  addListStudent(ListStudent listStudent) {
+
+
          for (ListStudent st : studentList) {
-            if (st.getName().equals(str.getName())) {
+            if (st.getName().equals(listStudent.getName())) {
                 System.out.println("Данный студент уже учиться!");
             }
         }
-        studentList.add(str);
+        studentList.add(listStudent);
+         for(ListStudent re:studentList){
+             System.out.println(re);
+         }
+
 
     }
 }
